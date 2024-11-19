@@ -1,6 +1,7 @@
 
 -- Only delete vulcanus, delete gleba and delete fulgora active
 if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not check_mod("aquilo") then
+	log("-------")
 	if data.raw.technology["foundry"] then
 		data.raw.technology["foundry"].prerequisites = {"space-science-pack"}
 		data.raw.technology["foundry"].research_trigger = null
@@ -17,7 +18,37 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 		}
 	end
 	
+	if data.raw.recipe["molten-iron"] then
+		data.raw.recipe["molten-iron"].ingredients = {
+			{type = "item", name = "iron-ore", amount = 50},
+			{type = "item", name = "stone", amount = 5}
+		}
+	end
+
+	if data.raw.recipe["molten-copper"] then
+		data.raw.recipe["molten-copper"].ingredients = {
+			{type = "item", name = "copper-ore", amount = 50},
+			{type = "item", name = "stone", amount = 5}
+		}
+	end
+	
+	if data.raw.recipe["superconductor"] then
+		data.raw.recipe["superconductor"].ingredients = {
+			{type = "item", name = "plastic-bar", amount = 1},
+			{type = "item", name = "copper-wire", amount = 50},
+			{type = "item", name = "tungsten-plate", amount = 100},
+			{type = "fluid", name = "light-oil", amount = 10}
+		}
+	end
+	
 	if data.raw.recipe["electromagnetic-plant"] then
+		data.raw.recipe["electromagnetic-plant"].ingredients = {
+			{type = "item", name = "steel-plate", amount = 50},
+			{type = "item", name = "processing-unit", amount = 50},
+			{type = "item", name = "electric-engine-unit", amount = 50},
+			{type = "item", name = "tungsten-plate", amount = 100},
+			{type = "item", name = "refined-concrete", amount = 100}
+		}
 		data.raw.recipe["electromagnetic-plant"].surface_conditions = {
 			{
 				property = "pressure",
@@ -96,7 +127,7 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 	if data.raw.recipe["foundry"] then
 		data.raw.recipe["foundry"].ingredients = {
 			{type = "item", name = "processing-unit", amount = 50},
-			{type = "item", name = "bioflux", amount = 10},
+			{type = "item", name = "low-density-structure", amount = 10},
 			{type = "item", name = "electronic-circuit", amount = 30},
 			{type = "item", name = "refined-concrete", amount = 20},
 			{type = "fluid", name = "lubricant", amount = 20}
@@ -113,6 +144,32 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 		}
 	end
 	
+	if data.raw.recipe["recycler"] then
+		data.raw.recipe["recycler"].surface_conditions = {
+			{
+				property = "pressure",
+				min = 1000,
+				max = 1000
+			}
+		}
+	end
+	
+	if data.raw.item["recycler"] then
+		data.raw.item["recycler"].default_import_location = "nauvis"
+	end
+
+	if data.raw.item["electromagnetic-plant"] then
+		data.raw.item["electromagnetic-plant"].default_import_location = "nauvis"
+	end
+
+	if data.raw.item["superconductor"] then
+		data.raw.item["superconductor"].default_import_location = "nauvis"
+	end
+
+	if data.raw.item["tesla-turret"] then
+		data.raw.item["tesla-turret"].default_import_location = "nauvis"
+	end
+	
 	if data.raw.technology["planet-discovery-aquilo"] then
 		data.raw.technology["planet-discovery-aquilo"].prerequisites = {"heating-tower", "advanced-asteroid-processing", "asteroid-reprocessing", "rocket-turret", "space-platform-thruster"}
 	end
@@ -127,7 +184,6 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 	delete_space_connection("gleba-aquilo")
 	delete_space_connection("nauvis-vulcanus")
 	delete_space_connection("vulcanus-aquilo")
-	data.raw["space-connection"]["nauvis-aquilo"].hidden = false
 end
 
 -- Only delete gleba and delete fulgora active
@@ -143,12 +199,29 @@ if check_mod("gleba") and check_mod("fulgora") and not check_mod("vulcanus") and
 		data.raw.recipe["bioflux"].results = {{type="item", name="bioflux", amount=1}}
 	end
 	
+	if data.raw.technology["bioflux"] then
+		data.raw.technology["bioflux"].prerequisites = {"metallurgic-science-pack"}
+		data.raw.technology["bioflux"].unit =
+		{
+			ingredients =
+			{
+				{"production-science-pack", 1},
+				{"utility-science-pack", 1},
+				{"metallurgic-science-pack", 1},
+				{"space-science-pack", 1},
+			},
+			time = 30,
+			count = 500
+		}
+	end
+	
 	delete_space_connection("nauvis-fulgora")
 	delete_space_connection("fulgora-aquilo")
 	delete_space_connection("gleba-aquilo")
 	delete_space_connection("gleba-fulgora")
 	delete_space_connection("vulcanus-gleba")
 	delete_space_connection("nauvis-gleba")
+	delete_space_connection("nauvis-aquilo")
 end
 
 -- Only delete vulcanus and delete gleba active
@@ -169,6 +242,30 @@ if check_mod("gleba") and not check_mod("fulgora") and check_mod("vulcanus") and
 		}
 	end
 	
+	if data.raw.technology["tungsten-steel"] then
+		data.raw.technology["tungsten-steel"].prerequisites = {"foundry", "electromagnetic-science-pack"}
+		data.raw.technology["tungsten-steel"].research_trigger = null
+	end
+	
+	if data.raw.recipe["foundry"] then
+		data.raw.recipe["foundry"].ingredients = {
+			{type = "item", name = "superconductor", amount = 50},
+			{type = "item", name = "holmium-plate", amount = 10},
+			{type = "item", name = "electronic-circuit", amount = 30},
+			{type = "item", name = "refined-concrete", amount = 20},
+			{type = "fluid", name = "lubricant", amount = 20}
+		}
+		data.raw.recipe["foundry"].surface_conditions = {
+			{property = "magnetic-field", min = 90, max = 99}
+		}
+	end
+	
+	if data.raw.recipe["metallurgic-science-pack"] then
+		data.raw.recipe["metallurgic-science-pack"].surface_conditions = {
+			{property = "magnetic-field", min = 90, max = 99}
+		}
+	end
+	
 	if data.raw.recipe["bioflux"] then
 		data.raw.recipe["bioflux"].ingredients =
 		{
@@ -186,6 +283,7 @@ if check_mod("gleba") and not check_mod("fulgora") and check_mod("vulcanus") and
 	delete_space_connection("gleba-aquilo")
 	delete_space_connection("gleba-fulgora")
 	delete_space_connection("vulcanus-aquilo")
+	delete_space_connection("nauvis-aquilo")
 end
 
 -- Only delete vulcanus and delete fulgora active
