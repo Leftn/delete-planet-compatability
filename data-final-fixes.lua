@@ -1,7 +1,6 @@
 
 -- Only delete vulcanus, delete gleba and delete fulgora active
 if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not check_mod("aquilo") then
-	log("-------")
 	if data.raw.technology["foundry"] then
 		data.raw.technology["foundry"].prerequisites = {"space-science-pack"}
 		data.raw.technology["foundry"].research_trigger = null
@@ -35,8 +34,8 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 	if data.raw.recipe["superconductor"] then
 		data.raw.recipe["superconductor"].ingredients = {
 			{type = "item", name = "plastic-bar", amount = 1},
-			{type = "item", name = "copper-wire", amount = 50},
-			{type = "item", name = "tungsten-plate", amount = 100},
+			{type = "item", name = "copper-wire", amount = 10},
+			{type = "item", name = "tungsten-plate", amount = 5},
 			{type = "fluid", name = "light-oil", amount = 10}
 		}
 	end
@@ -245,6 +244,18 @@ if check_mod("gleba") and not check_mod("fulgora") and check_mod("vulcanus") and
 	if data.raw.technology["tungsten-steel"] then
 		data.raw.technology["tungsten-steel"].prerequisites = {"foundry", "electromagnetic-science-pack"}
 		data.raw.technology["tungsten-steel"].research_trigger = null
+		data.raw.technology["tungsten-steel"].unit = {
+			count = 500,
+			ingredients = {
+				{"automation-science-pack", 1},
+				{"logistic-science-pack", 1},
+				{"chemical-science-pack", 1},
+				{"utility-science-pack", 1},
+				{"production-science-pack", 1},
+				{"space-science-pack", 1},
+			},
+			time = 60
+		}
 	end
 	
 	if data.raw.recipe["foundry"] then

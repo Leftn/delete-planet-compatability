@@ -14,3 +14,16 @@ Date: 18.11.2024
   Changes:
     - Added delete-vulcanus support
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.4
+Date: 19.11.2024
+  Bugfixes:
+    - Fixed various recipes when vulcanus/gleba/fulgora were all active
+---------------------------------------------------------------------------------------------------
+Version: 0.0.5
+Date: 19.11.2024
+  Balance:
+    - Reduced the amount of tungsten plates required for superconductors from 100 to 5 (Gleba, Vulcanus, Fulgora)
+    - Reduced the amount of copper wires required for superdoncutors from 50 to 10 (Gleba, Vulcanus, Fulgora)
+  Bugfixes:
+    - Fixed tungsten science being locked behind electromagnetic science (Gleba, Vulcanus, Fulgora)
+---------------------------------------------------------------------------------------------------
