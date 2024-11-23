@@ -17,6 +17,36 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 		}
 	end
 	
+	if data.raw.recipe["turbo-transport-belt"] then
+		data.raw.recipe["turbo-transport-belt"].surface_conditions = {
+			{
+				property = "pressure",
+				min = 1000,
+				max = 1000
+			}
+		}
+	end
+	
+	if data.raw.recipe["turbo-underground-belt"] then
+		data.raw.recipe["turbo-underground-belt"].surface_conditions = {
+			{
+				property = "pressure",
+				min = 1000,
+				max = 1000
+			}
+		}
+	end
+	
+		if data.raw.recipe["turbo-splitter"] then
+		data.raw.recipe["turbo-splitter"].surface_conditions = {
+			{
+				property = "pressure",
+				min = 1000,
+				max = 1000
+			}
+		}
+	end
+	
 	if data.raw.recipe["molten-iron"] then
 		data.raw.recipe["molten-iron"].ingredients = {
 			{type = "item", name = "iron-ore", amount = 50},
@@ -34,7 +64,7 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 	if data.raw.recipe["superconductor"] then
 		data.raw.recipe["superconductor"].ingredients = {
 			{type = "item", name = "plastic-bar", amount = 1},
-			{type = "item", name = "copper-wire", amount = 10},
+			{type = "item", name = "copper-cable", amount = 10},
 			{type = "item", name = "tungsten-plate", amount = 5},
 			{type = "fluid", name = "light-oil", amount = 10}
 		}
