@@ -27,3 +27,9 @@ Date: 19.11.2024
   Bugfixes:
     - Fixed tungsten science being locked behind electromagnetic science (Gleba, Vulcanus, Fulgora)
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.6
+Date: 23.11.2024
+  Bugfix:
+    - Fixed superconductors using the old coper wiring item, instead of the craftable cables (Vulcansu, Fulgra, Gleba)
+    - Fixed turbo belts having the incorrect surface conditions (Vulcansu, Fulgra, Gleba)
+---------------------------------------------------------------------------------------------------
