@@ -14,7 +14,7 @@ end
 
 function delete_space_connection(name)
 	if data.raw["space-connection"][name] then
-		data.raw["space-connection"][name] = null
+		data.raw["space-connection"][name] = nil
 	end
 end
 

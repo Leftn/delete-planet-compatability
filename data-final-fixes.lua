@@ -3,7 +3,7 @@
 if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not check_mod("aquilo") then
 	if data.raw.technology["foundry"] then
 		data.raw.technology["foundry"].prerequisites = {"space-science-pack"}
-		data.raw.technology["foundry"].research_trigger = null
+		data.raw.technology["foundry"].research_trigger = nil
 		data.raw.technology["foundry"].unit = {
 			count = 500,
 			ingredients = {
@@ -19,7 +19,7 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 	
 	if data.raw.technology["tungsten-steel"] then
 		data.raw.technology["tungsten-steel"].prerequisites = {"foundry"}
-		data.raw.technology["tungsten-steel"].research_trigger = null
+		data.raw.technology["tungsten-steel"].research_trigger = nil
 		data.raw.technology["tungsten-steel"].unit = {
 			count = 500,
 			ingredients = {
@@ -273,7 +273,7 @@ end
 if check_mod("gleba") and not check_mod("fulgora") and check_mod("vulcanus") and not check_mod("aquilo") then
 	if data.raw.technology["foundry"] then
 		data.raw.technology["foundry"].prerequisites = {"electromagnetic-plant"}
-		data.raw.technology["foundry"].research_trigger = null
+		data.raw.technology["foundry"].research_trigger = nil
 		data.raw.technology["foundry"].unit = {
 			count = 500,
 			ingredients = {
@@ -289,7 +289,7 @@ if check_mod("gleba") and not check_mod("fulgora") and check_mod("vulcanus") and
 	
 	if data.raw.technology["tungsten-steel"] then
 		data.raw.technology["tungsten-steel"].prerequisites = {"foundry", "electromagnetic-science-pack"}
-		data.raw.technology["tungsten-steel"].research_trigger = null
+		data.raw.technology["tungsten-steel"].research_trigger = nil
 		data.raw.technology["tungsten-steel"].unit = {
 			count = 500,
 			ingredients = {

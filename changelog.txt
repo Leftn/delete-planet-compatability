@@ -37,4 +37,5 @@ Version: 0.0.7
 Date: 6.12.2024
   Bugfix:
     - Fixed tungsten steel technology being locked behind electromagnetic science (Vulcansu, Fulgra, Gleba)
+	- Fixed using null instead of luas nil
 ---------------------------------------------------------------------------------------------------
