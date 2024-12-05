@@ -33,3 +33,8 @@ Date: 23.11.2024
     - Fixed superconductors using the old coper wiring item, instead of the craftable cables (Vulcansu, Fulgra, Gleba)
     - Fixed turbo belts having the incorrect surface conditions (Vulcansu, Fulgra, Gleba)
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.7
+Date: 6.12.2024
+  Bugfix:
+    - Fixed tungsten steel technology being locked behind electromagnetic science (Vulcansu, Fulgra, Gleba)
+---------------------------------------------------------------------------------------------------

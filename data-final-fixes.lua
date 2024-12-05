@@ -17,6 +17,22 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 		}
 	end
 	
+	if data.raw.technology["tungsten-steel"] then
+		data.raw.technology["tungsten-steel"].prerequisites = {"foundry"}
+		data.raw.technology["tungsten-steel"].research_trigger = null
+		data.raw.technology["tungsten-steel"].unit = {
+			count = 500,
+			ingredients = {
+				{"automation-science-pack", 1},
+				{"logistic-science-pack", 1},
+				{"chemical-science-pack", 1},
+				{"production-science-pack", 1},
+				{"space-science-pack", 1},
+			},
+			time = 60
+		}
+	end
+	
 	if data.raw.recipe["turbo-transport-belt"] then
 		data.raw.recipe["turbo-transport-belt"].surface_conditions = {
 			{
