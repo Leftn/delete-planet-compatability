@@ -344,7 +344,7 @@ if check_mod("gleba") and not check_mod("fulgora") and check_mod("vulcanus") and
 end
 
 -- Only delete vulcanus and delete fulgora active
-if not check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not check_mod("aquilo") then
+if not check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") then
 	if data.raw.technology["recycling"] then
 		data.raw.technology["recycling"].prerequisites = {"agricultural-science-pack"}
 		data.raw.technology["recycling"].unit =
@@ -394,11 +394,93 @@ if not check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and
 		}
 	end
 	
+	if check_mod("aquilo") then
+		delete_space_connection("aquilo-solar-system-edge")
+		delete_space_connection("vulcanus-solar-system-edge")
+		delete_space_connection("fulgora-solar-system-edge")
+		delete_space_connection("gleba-aquilo")
+	end
+	
 	delete_space_connection("nauvis-vulcanus")
 	delete_space_connection("vulcanus-gleba")
 	delete_space_connection("nauvis-fulgora")
 	delete_space_connection("fulgora-aquilo")
 	delete_space_connection("gleba-fulgora")
+end
+
+-- Only delete vulcanus and aquilo are active
+if not check_mod("gleba") and not check_mod("fulgora") and check_mod("vulcanus") and check_mod("aquilo") then
+	delete_space_connection("gleba-aquilo")
+	delete_space_connection("fulgora-aquilo")
+	delete_space_connection("aquilo-solar-system-edge")
+	delete_space_connection("vulcanus-gleba")
+	delete_space_connection("nauvis-vulcanus")
+	delete_space_connection("vulcanus-solar-system-edge")
+end
+
+-- Only delete gleba and aquilo are active
+if check_mod("gleba") and not check_mod("fulgora") and not check_mod("vulcanus") and check_mod("aquilo") then
+
+	if data.raw.recipe["cryogenic-plant"] then
+		data.raw.recipe["cryogenic-plant"].surface_conditions = {
+			{property = "pressure", min = 4000, max = 4000}
+		}
+	end
+	delete_space_connection("gleba-aquilo")
+	delete_space_connection("fulgora-aquilo")
+	delete_space_connection("aquilo-solar-system-edge")
+	delete_space_connection("gleba-solar-system-edge")
+	delete_space_connection("vulcanus-gleba")
+	delete_space_connection("vulcanus-aquilo")
+	delete_space_connection("nauvis-gleba")
+	delete_space_connection("gleba-fulgora")
+end
+
+-- Only delete fulgora and aquilo are active
+if not check_mod("gleba") and check_mod("fulgora") and not check_mod("vulcanus") and check_mod("aquilo") then
+	if data.raw.recipe["lithium"] then
+		data.raw.recipe["lithium"].ingredients = {
+			{type = "item", name = "calcite", amount = 1},
+			{type = "fluid", name = "steam", amount = 100},
+			{type = "fluid", name = "sulfuric-acid", amount = 50}
+		}
+	end
+	
+	if data.raw.recipe["cryogenic-plant"] then
+		data.raw.recipe["cryogenic-plant"].surface_conditions = {
+			{property = "pressure", min = 2000, max = 4000}
+		}
+	end
+	
+	if data.raw.recipe["fluoroketone"] then
+		data.raw.recipe["fluoroketone"].ingredients =
+		{
+			{type = "item", name = "bioflux", amount = 2},
+			{type = "fluid", name = "sulfuric-acid", amount = 50},
+			{type = "item", name = "solid-fuel", amount = 1},
+			{type = "item", name = "lithium", amount = 1},
+		}
+	end
+	
+	if data.raw.recipe["fusion-power-cell"] then
+		data.raw.recipe["fusion-power-cell"].ingredients =
+		{
+			{type = "item", name = "bioflux", amount = 2},
+			{type = "fluid", name = "petroleum-gas", amount = 50},
+			{type = "item", name = "copper-cable", amount = 2},
+			{type = "item", name = "steel-plate", amount = 1},
+			{type = "item", name = "lithium-plate", amount = 5},
+		}
+	end
+	
+	delete_space_connection("gleba-fulgora")
+	delete_space_connection("fulgora-aquilo")
+	delete_space_connection("nauvis-fulgora")
+	delete_space_connection("gleba-fulgora")
+	delete_space_connection("nauvis-aquilo")
+	delete_space_connection("gleba-aquilo")
+	delete_space_connection("aquilo-solar-system-edge")
+	delete_space_connection("fulgora-solar-system-edge")
 end
 
 -- Only delete gleba is active
@@ -424,3 +506,16 @@ if not check_mod("gleba") and not check_mod("fulgora") and check_mod("vulcanus")
 	delete_space_connection("nauvis-vulcanus")
 	delete_space_connection("nauvis-aquilo")
 end
+
+-- Only delete aquilo is active
+if not check_mod("gleba") and not check_mod("fulgora") and not check_mod("vulcanus") and check_mod("aquilo") then
+	delete_space_connection("gleba-aquilo")
+	delete_space_connection("fulgora-aquilo")
+	delete_space_connection("aquilo-solar-system-edge")
+	delete_space_connection("vulcanus-solar-system-edge")
+end
+
+	-- TODO
+	-- Change lithium recipe to use holmium ore if delete-fulgora is active
+	-- Change fluoroketone-hot recipe to use something else if delete-fulgora is active
+	-- Change surface conditions of cryogenic-plant and lithium when other delete planets are active as well.sticky keys

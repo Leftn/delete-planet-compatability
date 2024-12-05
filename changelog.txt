@@ -39,3 +39,8 @@ Date: 6.12.2024
     - Fixed tungsten steel technology being locked behind electromagnetic science (Vulcansu, Fulgra, Gleba)
     - Fixed using null instead of luas nil
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.8
+Date: 6.12.2024
+  Changes:
+    - Added delete-aquilo support
+---------------------------------------------------------------------------------------------------
