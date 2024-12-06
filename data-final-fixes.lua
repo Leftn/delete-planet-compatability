@@ -17,6 +17,26 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 		}
 	end
 	
+	if data.raw.recipe["artillery-shell"] then
+		data.raw.recipe["artillery-shell"].ingredients =
+		{
+			{type = "item", name = "radar", amount = 1},
+			{type = "item", name = "holmium-ore", amount = 1},
+			{type = "item", name = "tungsten-plate", amount = 4},
+			{type = "item", name = "explosives", amount = 8}
+		}
+	end
+	
+	if data.raw.technology.artillery then
+		data.raw.technology.artillery.prerequisites =
+		{
+			"military-4",
+			"metallurgic-science-pack",
+			"radar",
+			"advanced-asteroid-processing"
+		}
+	end
+	
 	if data.raw.technology["tungsten-steel"] then
 		data.raw.technology["tungsten-steel"].prerequisites = {"foundry"}
 		data.raw.technology["tungsten-steel"].research_trigger = nil
@@ -260,6 +280,26 @@ if check_mod("gleba") and check_mod("fulgora") and not check_mod("vulcanus") and
 		}
 	end
 	
+	if data.raw.recipe["artillery-shell"] then
+		data.raw.recipe["artillery-shell"].ingredients =
+		{
+			{type = "item", name = "radar", amount = 1},
+			{type = "item", name = "holmium-ore", amount = 1},
+			{type = "item", name = "tungsten-plate", amount = 4},
+			{type = "item", name = "explosives", amount = 8}
+		}
+	end
+	
+	if data.raw.technology.artillery then
+		data.raw.technology.artillery.prerequisites =
+		{
+			"military-4",
+			"metallurgic-science-pack",
+			"radar",
+			"advanced-asteroid-processing"
+		}
+	end
+	
 	delete_space_connection("nauvis-fulgora")
 	delete_space_connection("fulgora-aquilo")
 	delete_space_connection("gleba-aquilo")
@@ -357,6 +397,26 @@ if not check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") the
 		time = 30,
 		count = 500
     }
+	end
+	
+	if data.raw.recipe["artillery-shell"] then
+		data.raw.recipe["artillery-shell"].ingredients =
+		{
+			{type = "item", name = "radar", amount = 1},
+			{type = "item", name = "holmium-ore", amount = 1},
+			{type = "item", name = "tungsten-plate", amount = 4},
+			{type = "item", name = "explosives", amount = 8}
+		}
+	end
+	
+	if data.raw.technology.artillery then
+		data.raw.technology.artillery.prerequisites =
+		{
+			"military-4",
+			"metallurgic-science-pack",
+			"radar",
+			"advanced-asteroid-processing"
+		}
 	end
 	
 	if data.raw.technology["advanced-asteroid-processing"] then
