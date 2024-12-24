@@ -53,6 +53,20 @@ if check_mod("gleba") and check_mod("fulgora") and check_mod("vulcanus") and not
 		}
 	end
 	
+	if data.raw.recipe["molten-iron"] then
+		data.raw.recipe["molten-iron"].ingredients = {
+			{type = "item", name = "iron-ore", amount = 50},
+			{type = "fluid", name = "holmium-ore", amount = 10}
+		}
+	end
+
+	if data.raw.recipe["molten-copper"] then
+		data.raw.recipe["molten-copper"].ingredients = {
+			{type = "item", name = "copper-ore", amount = 50},
+			{type = "fluid", name = "holmium-ore", amount = 10}
+		}
+	end
+	
 	if data.raw.recipe["turbo-transport-belt"] then
 		data.raw.recipe["turbo-transport-belt"].surface_conditions = {
 			{
